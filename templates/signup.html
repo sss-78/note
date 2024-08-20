@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>noteai</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        <h1 id="main-header-sign">Sign Up</h1>
+        
+        <div id="login-block-sign">
+            <form action="http://127.0.0.1:5000/sign-up-info" method="post">
+                <label>Username:</label><input type="text" name="username"><br>
+                <label>Email:</label><input type="text" name="email"><br>
+                <label>Password:</label><input type="text" name="password"><br>
+                <input type="submit" name="submit" value="Login">
+                <input type="reset" name="reset" value="Clear">
+            </form>
+        </div>
+
+        <!-- <script src="index.js"></script> -->
+    </body>
+
+</html>

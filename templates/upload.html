@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>noteai</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        
+        <div id="upload-block">
+            <form action="/upload" method="post">
+               <label>Upload File:</label><input type="file" name="upload-file" accept="file/jpg"/>
+            </form>
+        </div>
+
+        <!-- <script src="index.js"></script> -->
+    </body>
+
+</html>

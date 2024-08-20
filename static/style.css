@@ -1,0 +1,35 @@
+html {
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp4063175.jpg&f=1&nofb=1&ipt=6f387449e2b72a9247db94fa2bb7619a81c17f68c1b3ffd8895971fc0288b2bc&ipo=images");
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+        
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#main-header {
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+#login-block {
+    max-width: fit-content;
+    margin-inline: auto;
+}
+
+#main-header-sign {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+#login-block-sign {
+    max-width: fit-content;
+    margin-inline: auto;
+}
+
+
+h1, p, label, a {
+    color: white;
+}

@@ -82,31 +82,31 @@ def add_user(username, email, password):
     except Exception as e:
         print(e)
     
-    def validate_login(username, password):
-        try:
-            conn = get_connection()
-            record_values = (username, password)
-            query = f'''
-                    select * from users where username=%s and password=%s;
-                    '''
-            
-            if conn:
-                cursor = conn.cursor()
-                cursor.execute(query, record_values)
-
-                user = cursor.fetchone()
-                
-                conn.commit() 
-                cursor.close()
-                conn.close()
-
-                print('found user')
-                return user
-
-        except Exception as e:
-            print(e)
+def validate_login(username, password):
+    try:
+        conn = get_connection()
+        record_values = (username, password)
+        query = f'''
+                select * from users where username=%s and password=%s;
+                '''
         
-        return None
+        if conn:
+            cursor = conn.cursor()
+            cursor.execute(query, record_values)
+
+            user = cursor.fetchone()
+            
+            conn.commit() 
+            cursor.close()
+            conn.close()
+
+            print('found user')
+            return user
+
+    except Exception as e:
+        print(e)
+    
+    return None
 
         
     

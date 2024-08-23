@@ -1,0 +1,10 @@
+function togglePassword() {
+    console.log("Checkbox clicked");
+    let x = document.getElementById("password");
+    if(x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+

@@ -2,16 +2,9 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 import psycopg2
+from storage import login
 
-# Define the PostgreSQL URL
-postgresql_url = 'postgresql://postgres:sukku123@localhost:5432/noteai'
-login = {
-    'database' : 'note',
-    'user' : 'note',
-    'password' : 'note',
-    'host' : 'localhost',
-    'port' : '5432'
-}
+database, user, password, host, port = login['database'], login['user'], login['password'], login['host'], login['port']
 
 def get_connection():
     try:        

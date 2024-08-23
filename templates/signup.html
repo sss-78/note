@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>noteai</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <script src="{{url_for('static', filename='script.js')}}"></script>
     </head>
 
     <body>
@@ -14,13 +15,13 @@
             <form action="http://127.0.0.1:5000/sign-up-info" method="post">
                 <label>Username:</label><input type="text" name="username"><br>
                 <label>Email:</label><input type="text" name="email"><br>
-                <label>Password:</label><input type="text" name="password"><br>
+                <label>Password:</label><input type="password" name="password" id="password"><br>
+                <input type="checkbox" onclick="togglePassword()"><p>Show Password</p>
                 <input type="submit" name="submit" value="Login">
                 <input type="reset" name="reset" value="Clear">
             </form>
         </div>
 
-        <!-- <script src="index.js"></script> -->
     </body>
 
 </html>

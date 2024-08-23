@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>noteai</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        <h1>Create a new note</h1>
+        <div id="note-constraint">
+
+            <form action="/action_page.php">
+                <label>Please enter any additional requests for your notes:</label><br>
+                <textarea name="note-constr" id="note-constr" rows="6" cols="66"></textarea><br>
+                
+                <label for="notes">Upload your note</label>
+                <input type="file" id="notes" style="visibility:visible" name="notes"><br>
+
+                <input type="submit" value="Create note">
+            </form>
+
+        </div>
+    </body>
+
+</html>

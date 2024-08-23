@@ -30,6 +30,11 @@ def home():
 def signup():
     return render_template('signup.html')
 
+# Creating a new note page
+@app.route('/new_note')
+def note():
+    return render_template('new_note.html')
+
 # Info displayed after signing-up
 @app.route('/sign-up-info', methods = ['POST'])
 @validate(on_success_status=201)
@@ -101,10 +106,9 @@ def validate_login(form: schemas.RequestFormLoginDataModel):
         conn.close()
     except Exception as e:
         print(e)
-            
-    return render_template("note-response.html", message_value=message) 
-
     
+    file = "user.html" if message[0:3] == "You" else "error.html"
+    return render_template(file, message_value=message) 
 
 
 if __name__ == '__main__':

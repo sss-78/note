@@ -8,8 +8,8 @@ database, user, password, host, port = login['database'], login['user'], login['
 
 def get_connection():
     try:        
-        conn = psycopg2.connect(database=login['database'], user=login['user'], 
-                                password=login['password'], host=login['host'], port=login['port'])
+        conn = psycopg2.connect(database=database, user=user, 
+                                password=password, host=host, port=port)
         cursor = conn.cursor()
         print('Connected to Database')
         return conn
@@ -20,8 +20,8 @@ def get_connection():
 
 def connect_and_execute(query_string):
     try:        
-        conn = psycopg2.connect(database=login['database'], user=login['user'], 
-                                password=login['password'], host=login['host'], port=login['port'])
+        conn = psycopg2.connect(database=database, user=user, 
+                                password=password, host=host, port=port)
         cursor = conn.cursor()
         print('Connected to Database')
 

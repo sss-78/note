@@ -24,3 +24,11 @@ class RequestFormLoginDataModel(BaseModel):
     username: str
     password: str
 
+class RequestNoteDataModel(BaseModel):
+    additional_info: str
+    file_name: str
+
+class NoteDataResponseModel(BaseModel):
+    additional_info: str
+    file_name: str
+

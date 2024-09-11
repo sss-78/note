@@ -35,6 +35,14 @@ def signup():
 def note():
     return render_template('new_note.html')
 
+@app.route('/test-note', methods = ['POST'])
+@validate(on_success_status=201)
+def get_note_details(form: schemas.RequestNoteDataModel):
+    additional_info, file_name = form.additional_info, form.file_name
+    response_prompt = ''
+    # response_prompt = utils.call_note(additional_info, file_name)
+    return response_prompt
+
 # Info displayed after signing-up
 @app.route('/sign-up-info', methods = ['POST'])
 @validate(on_success_status=201)
@@ -115,3 +123,4 @@ if __name__ == '__main__':
     # connect_to_database()
     # database.create_users_table()
     app.run(debug=True)
+

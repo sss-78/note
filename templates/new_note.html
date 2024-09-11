@@ -11,12 +11,12 @@
         <h1>Create a new note</h1>
         <div id="note-constraint">
 
-            <form action="/action_page.php">
+            <form action="/test-note" method="post">
                 <label>Please enter any additional requests for your notes:</label><br>
-                <textarea name="note-constr" id="note-constr" rows="6" cols="66"></textarea><br>
+                <textarea name="additional_info" id="note-constr" rows="6" cols="66"></textarea><br>
                 
                 <label for="notes">Upload your note</label>
-                <input type="file" id="notes" style="visibility:visible" name="notes"><br>
+                <input type="file" id="notes" name="file_name"><br>
 
                 <input type="submit" value="Create note">
             </form>

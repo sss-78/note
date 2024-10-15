@@ -1,6 +1,6 @@
 import anthropic
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import json
 import psycopg2
 import schemas
@@ -39,8 +39,7 @@ def note():
 @validate(on_success_status=201)
 def get_note_details(form: schemas.RequestNoteDataModel):
     additional_info, file_name = form.additional_info, form.file_name
-    response_prompt = ''
-    # response_prompt = utils.call_note(additional_info, file_name)
+    response_prompt = utils.ai_response(additional_info, file_name)
     return response_prompt
 
 # Info displayed after signing-up
@@ -123,4 +122,3 @@ if __name__ == '__main__':
     # connect_to_database()
     # database.create_users_table()
     app.run(debug=True)
-

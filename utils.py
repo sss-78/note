@@ -4,33 +4,24 @@ import bcrypt
 import base64
 import httpx
 import storage
-import replicate
+import ollama
 
-def call_note(text_prompt, file):
-    api_key = storage.ANTHROPIC_API_TOKEN
-    os.environ['ANTHROPIC_API_KEY'] = api_key
+# Currently only take sin input from text_prompt
+def ai_response(text_prompt, file):
+    response = ''
 
-    client = anthropic.Anthropic(api_key=api_key)
-
-    message = client.messages.create(
-        model="claude-3-5-sonnet-20240620",
-        max_tokens=1000,
-        temperature=0,
-        system="Just respond concisely",
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": text_prompt
-                    }
-                ]
-            }
-        ]
-    )
-    print(message.content[0].text)
-    return message.content[0].text
+    try:
+        stream = ollama.chat(
+            model='llama3.2',
+            messages=[{'role': 'user', 'content': text_prompt}],
+            stream=True,
+        )
+        for chunk in stream:
+            response += chunk['message']['content']
+    except Exception as e:
+        response = e
+        
+    return response
 
 
 def upload():
@@ -84,16 +75,6 @@ def hash(s):
 def validate_password(password_input, password_actual):
     return bcrypt.checkpw(password_input.encode('utf-8'), password_actual.encode('utf-8'))
 
-# def test_l():
-#     os.environ["REPLICATE_API_TOKEN"] = storage.REPLICATE_API_TOKEN
-
-#     api = replicate.Client(api_token=os.environ["REPLICATE_API_TOKEN"])
-#     output = api.run(
-#         "meta/llama-2-70b-chat:02e509c789964a7ea8736978a43525956ef40397be9033abf9fd2badfe68c9e3",
-#             input={"prompt": 'What is 1+1?'}
-#         )
-#     for item in output:
-#         print(item, end="")
  
 
 
